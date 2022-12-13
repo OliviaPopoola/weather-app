@@ -1,0 +1,83 @@
+body {
+  font-family: "Gothic A1", sans-serif;
+  background: linear-gradient(
+    to top,
+    #0c3483 0%,
+    #a2b6df 100%,
+    #6b8cce 100%,
+    #a2b6df 100%
+  );
+  padding: 25px 0;
+  color: whitesmoke;
+}
+button {
+  margin-right: 14px;
+}
+hr {
+  color: darkslategrey;
+}
+.search-bar {
+  font-family: "Poppins", sans-serif;
+}
+.description {
+  margin-top: -22px;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+.location {
+  font-size: 80px;
+}
+.date {
+  font-size: 20px;
+}
+.detail-text {
+  font-size: 20px;
+}
+
+.current-temperature {
+  font-family: "Gothic A1", sans-serif;
+}
+.day-container {
+  padding: 0.8em 0;
+  width: 13%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.15);
+  text-align: center;
+  margin: 0 3px;
+  font-size: 20px;
+  transition: all 2ms ease-in-out;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.day-container:hover {
+  background-color: rgb(20 77 90 / 38%);
+  font-size: 26px;
+}
+.main-picture {
+  max-width: 20%;
+}
+.degrees {
+  font-size: 112px;
+}
+.subheading {
+  font-size: 30px;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 200;
+  margin-top: 50px;
+}
+.rain-icon {
+  color: black;
+}
+.wind-icon {
+  color: black;
+}
+.footer {
+  font-family: "Rubik", sans-serif;
+  color: white;
+  text-align: center;
+}
+.footer:hover {
+  color: black;
+}
