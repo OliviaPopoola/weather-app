@@ -1,14 +1,17 @@
 body {
   font-family: "Gothic A1", sans-serif;
-  background: linear-gradient(
+  background-color: rgba(187, 223, 239, 0.3);
+  /* background: linear-gradient(
     to top,
     #0c3483 0%,
     #a2b6df 100%,
     #6b8cce 100%,
     #a2b6df 100%
-  );
+    ); */
   padding: 25px 0;
-  color: whitesmoke;
+  color: black;
+  /* background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/564/original/pexels-kasuma-1785493.jpg?1671030475");
+  background-size: 500px 700px; */
 }
 button {
   margin-right: 14px;
@@ -16,6 +19,7 @@ button {
 hr {
   color: darkslategrey;
 }
+
 .search-bar {
   font-family: "Poppins", sans-serif;
 }
