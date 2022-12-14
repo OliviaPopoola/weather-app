@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Varela+Round&family=Gothic+A1:wght@400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&family=Montserrat:wght@200;400;500;600;700;800&family=Gothic+A1:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
 
@@ -55,22 +55,20 @@
         </nav>
 
         <div class="main-container row align-items-start">
-          <img
-            src="images/clouds-sun.svg"
-            alt="mostly-sunny"
-            class="main-picture col"
-          />
+          <div class="location-date col">
+            <h1 class="location" id="current-location">London</h1>
+            <div class="date" id="current-date">15th November 2022</div>
+          </div>
           <div class="row-cols-1 col">
             <div class="current-temperature">
               <span class="degrees" id="current-degrees">20</span
               ><span>°C</span>
               <!-- <a href="#" id="celsius-link">°C</a> |
-              <a href="#" id="fahrenheit-link">°F</a> -->
+                  <a href="#" id="fahrenheit-link">°F</a> -->
               <div class="col-4 description" id="weather-description">
                 mostly sunny
               </div>
             </div>
-
             <div class="col-4 detail-text">
               <i class="fa-solid fa-wind wind-icon"></i>
               <span id="wind">6</span>
@@ -81,11 +79,11 @@
               <span id="rain">10%</span>
             </div>
           </div>
-          <div class="location-date col">
-            <h1 class="location" id="current-location">London</h1>
-            <div class="date" id="current-date">15th November 2022</div>
-          </div>
-          <br />
+          <img
+            src="images/clouds-sun.svg"
+            alt="mostly-sunny"
+            class="main-picture col"
+          />
         </div>
 
         <br />

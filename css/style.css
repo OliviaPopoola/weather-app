@@ -1,5 +1,5 @@
 body {
-  font-family: "Gothic A1", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: rgba(187, 223, 239, 0.3);
   /* background: linear-gradient(
     to top,
@@ -39,7 +39,7 @@ hr {
 }
 
 .current-temperature {
-  font-family: "Gothic A1", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .day-container {
   padding: 0.8em 0;
@@ -67,7 +67,7 @@ hr {
 }
 .subheading {
   font-size: 30px;
-  font-family: "Gothic A1", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 200;
   margin-top: 50px;
 }
@@ -78,7 +78,7 @@ hr {
   color: black;
 }
 .footer {
-  font-family: "Rubik", sans-serif;
+  font-family: "Gothic A1", sans-serif;
   color: white;
   text-align: center;
 }
