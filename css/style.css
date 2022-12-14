@@ -16,23 +16,28 @@ hr {
 }
 .description {
   margin-top: -22px;
-  margin-bottom: 15px;
-  font-size: 22px;
+  margin-bottom: 40px;
+  font-size: 20px;
 }
 .location {
-  font-size: 100px;
-  margin-top: 65px;
+  font-size: 80px;
+  margin-top: 90px;
 }
 .date {
   font-size: 20px;
   margin-top: -20px;
 }
 .detail-text {
-  font-size: 20px;
+  font-size: 28px;
 }
-
+.more-details {
+  margin-top: 40px;
+  font-size: 30px;
+}
 .current-temperature {
   font-family: "Montserrat", sans-serif;
+  margin-top: 86px;
+  margin-left: 50px;
 }
 .day-container {
   padding: 0.8em 0;
@@ -53,22 +58,14 @@ hr {
   font-size: 26px;
 }
 .main-picture {
-  max-width: 20%;
+  max-width: 40%;
 }
 .degrees {
-  font-size: 112px;
+  font-size: 90px;
 }
-.subheading {
-  font-size: 30px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  margin-top: 50px;
-}
-.rain-icon {
-  color: rgb(30, 23, 20);
-}
-.wind-icon {
-  color: rgb(30, 23, 20);
+.c-symbol {
+  font-size: 35px;
+  font-weight: 100;
 }
 .footer {
   font-family: "Gothic A1", sans-serif;
@@ -79,5 +76,7 @@ hr {
   color: black;
 }
 .bottom-page {
-  background-color: rgb(164, 166, 172);
+  background-color: rgb(213, 212, 208);
+  padding: 70px;
+  margin-top: 50px;
 }

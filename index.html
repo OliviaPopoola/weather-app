@@ -68,53 +68,59 @@
           </div>
         </nav>
 
-        <div class="main-container row align-items-start">
+        <div class="main-container row">
           <div class="location-date col">
             <div class="location" id="current-location">London</div>
             <div class="date" id="current-date">15th November 2022</div>
           </div>
           <div class="row-cols-1 col">
             <div class="current-temperature">
-              <div class="main-img">
-                <img
-                  src="images/clouds-sun.svg"
-                  alt="mostly-sunny"
-                  class="main-picture"
-                />
-              </div>
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/706/original/9027021_thermometer_simple_thin_icon.png?1671049888"
+                alt="thermometer-icon"
+                width="70"
+              />
               <span class="degrees" id="current-degrees">20</span
-              ><span>°C</span>
+              ><span class="c-symbol">°C</span>
               <!-- <a href="#" id="celsius-link">°C</a> |
                   <a href="#" id="fahrenheit-link">°F</a> -->
-              <div class="col-4 description" id="weather-description">
-                mostly sunny
-              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="col-4 detail-text">
+          <div class="col more-details">
+            <div class="main-img">
+              <img
+                src="images/clouds-sun.svg"
+                alt="mostly-sunny"
+                class="main-picture"
+              />
+            </div>
+            <div class="col-4 description" id="weather-description">
+              Mostly sunny
+            </div>
+            <div>
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/626/original/9027222_wind_thin_icon.png?1671040234"
-                alt=""
-                width="35"
+                alt="wind-icon"
+                width="45"
               />
               <span id="wind">6</span>
               mph
             </div>
-            <div class="col-4 detail-text">
+            <div>
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/627/original/9027169_umbrella_thin_icon.png?1671040272"
-                width="35"
-                alt=""
+                width="45"
+                alt="rain-icon"
               />
               <span id="rain">10%</span>
             </div>
             <div>
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/625/original/9772477_weather_humidity_rain_forecast_cloud_icon.png?1671040093"
-                width="35"
-                alt=""
+                width="45"
+                alt="humidity-icon"
               />
+              <span id="humidity">12</span>%
             </div>
           </div>
         </div>
@@ -122,8 +128,6 @@
       </div>
 
       <div class="btm-wrapper">
-        <h2 class="subheading">Next five days</h2>
-
         <div class="container px-4 text-center">
           <div class="row gx-5">
             <div class="col day-container">
@@ -182,7 +186,6 @@
   </body>
 
   <div class="bottom-page">
-    <hr />
     <footer class="footer">
       <a href="https://www.linkedin.com/in/olivia-popoola-095op" target="_blank"
         ><img

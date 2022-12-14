@@ -36,7 +36,7 @@ function formatDate(date) {
   if (mins < 10) {
     mins = `0${mins}`;
   }
-  return `${day}, ${nowdate}  ${month},  ${year}     ${hour}:${mins}`;
+  return `${day} ${nowdate}  ${month},  ${year}     ${hour}:${mins}`;
 }
 let currentTime = document.querySelector("#current-date");
 let now = new Date();
@@ -116,6 +116,13 @@ function displayTemp(response) {
   // wind data
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  // select humdity
+  let humidityElement = document.querySelector("#humidity");
+  // get response
+  let roundedHumidity = Math.round(response.data.main.humidity);
+  // update description
+  humidityElement.innerHTML = `${roundedHumidity}`;
+
   // select rain element
   let rainElement = document.querySelector("#rain");
   // check if exisits
