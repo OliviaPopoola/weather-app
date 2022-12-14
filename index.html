@@ -42,13 +42,27 @@
                 autocomplete="off"
                 id="search-input"
               />
-              <button class="btn btn-outline-dark" type="submit">Search</button>
+              <button class="btn btn-outline-dark" type="submit">
+                <div class="search-icon">
+                  <img
+                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/624/original/9026843_magnifying_glass_thin_icon.png?1671039227"
+                    alt="search-icon"
+                    width="30"
+                  />
+                </div>
+              </button>
               <button
                 class="btn btn-outline-light"
                 type="submit"
                 id="current-button"
               >
-                Current
+                <div class="pin-icon">
+                  <img
+                    src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/621/original/9026779_map_pin_thin_icon.png?1671038725"
+                    alt="pin-icon"
+                    width="30"
+                  />
+                </div>
               </button>
             </form>
           </div>
@@ -56,11 +70,18 @@
 
         <div class="main-container row align-items-start">
           <div class="location-date col">
-            <h1 class="location" id="current-location">London</h1>
+            <div class="location" id="current-location">London</div>
             <div class="date" id="current-date">15th November 2022</div>
           </div>
           <div class="row-cols-1 col">
             <div class="current-temperature">
+              <div class="main-img">
+                <img
+                  src="images/clouds-sun.svg"
+                  alt="mostly-sunny"
+                  class="main-picture"
+                />
+              </div>
               <span class="degrees" id="current-degrees">20</span
               ><span>°C</span>
               <!-- <a href="#" id="celsius-link">°C</a> |
@@ -79,11 +100,6 @@
               <span id="rain">10%</span>
             </div>
           </div>
-          <img
-            src="images/clouds-sun.svg"
-            alt="mostly-sunny"
-            class="main-picture col"
-          />
         </div>
 
         <br />
@@ -149,27 +165,28 @@
     </div>
   </body>
   <br />
-
-  <hr />
-  <footer class="footer">
-    <a href="https://www.linkedin.com/in/olivia-popoola-095op" target="_blank"
-      ><img
-        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/058/original/9026840_linkedin_logo_thin_icon.png?1670861656"
-        alt="linkedin"
-        width="30" /></a
-    ><a href="https://github.com/OliviaPopoola" target="_blank">
-      <img
-        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/057/original/9026804_github_logo_thin_icon.png?1670861626"
-        alt="github"
-        width="30" /></a
-    ><a href="https://www.instagram.com/livvy.codes/" target="_blank">
-      <img
-        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/056/original/9026811_instagram_logo_thin_icon.png?1670861619"
-        alt="instagram"
-        width="30"
-    /></a>
-    <br />
-    Coded by Olivia Popoola
-  </footer>
+  <div class="bottom-page">
+    <hr />
+    <footer class="footer">
+      <a href="https://www.linkedin.com/in/olivia-popoola-095op" target="_blank"
+        ><img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/058/original/9026840_linkedin_logo_thin_icon.png?1670861656"
+          alt="linkedin"
+          width="30" /></a
+      ><a href="https://github.com/OliviaPopoola" target="_blank">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/057/original/9026804_github_logo_thin_icon.png?1670861626"
+          alt="github"
+          width="30" /></a
+      ><a href="https://www.instagram.com/livvy.codes/" target="_blank">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/056/original/9026811_instagram_logo_thin_icon.png?1670861619"
+          alt="instagram"
+          width="30"
+      /></a>
+      <br />
+      Coded by Olivia Popoola
+    </footer>
+  </div>
   <script src="java/apps.js"></script>
 </html>
