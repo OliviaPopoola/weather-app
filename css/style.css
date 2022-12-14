@@ -61,19 +61,29 @@ hr {
   max-width: 40%;
 }
 .degrees {
-  font-size: 90px;
+  font-size: 110px;
 }
 .c-symbol {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 100;
+}
+.high-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(178, 86, 53);
+}
+.low-text {
+  font-size: 18px;
+  color: rgb(178, 86, 53);
+  font-weight: 500;
 }
 .footer {
   font-family: "Gothic A1", sans-serif;
-  color: white;
+  color: rgb(112, 86, 75);
   text-align: center;
 }
 .footer:hover {
-  color: black;
+  color: rgb(203, 164, 148);
 }
 .bottom-page {
   background-color: rgb(213, 212, 208);
