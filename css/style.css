@@ -77,6 +77,9 @@ hr {
   color: rgb(178, 86, 53);
   font-weight: 500;
 }
+.row {
+  align-items: center;
+}
 .footer {
   font-family: "Gothic A1", sans-serif;
   color: rgb(112, 86, 75);
