@@ -19,9 +19,13 @@ hr {
   margin-bottom: 40px;
   font-size: 20px;
 }
+.description:first-letter {
+  text-transform: capitalize;
+}
 .location {
   font-size: 80px;
   margin-top: 90px;
+  color: rgb(178, 86, 53);
 }
 .date {
   font-size: 20px;
@@ -36,6 +40,7 @@ hr {
 }
 .current-temperature {
   font-family: "Montserrat", sans-serif;
+  color: rgb(178, 86, 53);
   margin-top: 86px;
   margin-left: 50px;
 }
@@ -82,7 +87,7 @@ hr {
   font-size: 25px;
   font-weight: 100;
 }
-.high-text {
+/* .high-text {
   font-size: 18px;
   font-weight: 700;
   color: rgb(178, 86, 53);
@@ -90,8 +95,8 @@ hr {
 .low-text {
   font-size: 18px;
   color: rgb(178, 86, 53);
-  font-weight: 500;
-}
+  font-weight: 500; */
+/* } */
 .row {
   align-items: center;
 }

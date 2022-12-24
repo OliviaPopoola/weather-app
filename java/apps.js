@@ -82,8 +82,8 @@ currentTime.innerHTML = formatDate(now);
 // api called when search clicked
 // inner html changed to display search
 let units = "metric";
-let apiKey = "ce144f0cf51fa43f03431f0488a36728";
-let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
+let apiKey = "64f17b5a3404993ab8co5054f3c7bt29";
+let apiEndpoint = "https://api.shecodes.io/weather/v1/current?query=";
 let form = document.querySelector("#search-form");
 
 function search(event) {
@@ -93,7 +93,7 @@ function search(event) {
   cityName = cityName.trim();
   cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
   currentLocation.innerHTML = `${cityName}`;
-  let apiUrl = `${apiEndpoint}${cityName}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `${apiEndpoint}${cityName}&key=${apiKey}&units=${units}`;
   axios
     .get(apiUrl)
     .then(displayTemp)
@@ -104,22 +104,22 @@ function displayTemp(response) {
   // get curr temp
   let temperatureElement = document.querySelector("#current-degrees");
   // get response and round
-  let roundedTemp = Math.round(response.data.main.temp);
+  let roundedTemp = Math.round(response.data.temperature.current);
   // set rounded temp as curr temp
   temperatureElement.innerHTML = `${roundedTemp}`;
   // get description
   let description = document.querySelector("#weather-description");
   // set description from response
-  let weatherDescription = response.data.weather[0].description;
+  let weatherDescription = response.data.condition.description;
   // update description html
   description.innerHTML = `${weatherDescription}`;
   // wind data
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+  windElement.innerHTML = Math.round(response.wind.speed);
   // select humdity
   let humidityElement = document.querySelector("#humidity");
   // get response
-  let roundedHumidity = Math.round(response.data.main.humidity);
+  let roundedHumidity = Math.round(response.data.temperature.humidity);
   // update description
   humidityElement.innerHTML = `${roundedHumidity}`;
 
@@ -133,6 +133,9 @@ function displayTemp(response) {
   }
   // if so then update rain ele with value
   // if not show -
+  // select date
+  let dateElement = document.querySelector("#current-date");
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
 }
 
 form.addEventListener("submit", search);
@@ -141,21 +144,30 @@ form.addEventListener("submit", search);
 // Add a Current Location button. When clicking on it, it uses the Geolocation API to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
 
 function showTemp(position) {
+  console.log(position);
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
-  let geoApi = `${apiEndpoint}&lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let geoApi = `${apiEndpoint}&lat=${lat}&lon=${lon}&key=${apiKey}&units=${units}`;
   axios
     .get(geoApi)
     .then(displayCurrent)
     .catch((error) => console.log("error", error));
 }
 function displayCurrent(response) {
-  let temp = Math.round(response.data.main.temp);
-  let city = response.data.name;
+  let temp = Math.round(response.data.temperature.current);
+  let city = response.data.city;
   let currentLocation = document.querySelector("#current-location");
   currentLocation.innerHTML = `${city}`;
   let currentLocTemperature = document.querySelector("#current-degrees");
   currentLocTemperature.innerHTML = `${temp}`;
+  let description = document.querySelector("#weather-description");
+  let currentDescription = response.data.condition.description;
+  description.innerHTML = `${currentDescription}`;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.wind.speed);
+  let humidityElement = document.querySelector("#humidity");
+  let roundedHumidity = Math.round(response.data.temperature.humidity);
+  humidityElement.innerHTML = `${roundedHumidity}`;
 }
 function getPosition() {
   navigator.geolocation.getCurrentPosition(showTemp);
