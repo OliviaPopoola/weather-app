@@ -105,23 +105,25 @@ function showTemp(position) {
 }
 
 // ---------- start of C to F conversion ----------
-// Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
 function fahrenheitConverter(event) {
   event.preventDefault();
   let currentDegrees = document.querySelector("#current-degrees");
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
   currentDegrees.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
 }
-let celsiusTemp = null;
 
 function celsiusConverter(event) {
   event.preventDefault();
   let currentDegrees = document.querySelector("#current-degrees");
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
   currentDegrees.innerHTML = Math.round(celsiusTemp);
 }
 
+let celsiusTemp = null;
 let celsius = document.querySelector("#celsius-link");
 celsius.addEventListener("click", celsiusConverter);
-
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", fahrenheitConverter);
 

@@ -85,15 +85,15 @@ hr {
   font-size: 110px;
 }
 .c-symbol.f-symbol {
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 100;
 }
-.current-temperature.active {
+.active {
   color: rgb(94, 83, 83);
   text-decoration: none;
   cursor: default;
 }
-.current-temperature.active:hover {
+.active:hover {
   color: rgb(94, 83, 83);
   cursor: default;
 }
