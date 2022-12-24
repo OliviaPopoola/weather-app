@@ -31,6 +31,7 @@ hr {
   font-size: 20px;
   margin-top: -20px;
 }
+
 .detail-text {
   font-size: 28px;
 }
@@ -83,20 +84,19 @@ hr {
 .degrees {
   font-size: 110px;
 }
-.c-symbol {
-  font-size: 25px;
+.c-symbol.f-symbol {
+  font-size: 15px;
   font-weight: 100;
 }
-/* .high-text {
-  font-size: 18px;
-  font-weight: 700;
-  color: rgb(178, 86, 53);
+.current-temperature.active {
+  color: rgb(94, 83, 83);
+  text-decoration: none;
+  cursor: default;
 }
-.low-text {
-  font-size: 18px;
-  color: rgb(178, 86, 53);
-  font-weight: 500; */
-/* } */
+.current-temperature.active:hover {
+  color: rgb(94, 83, 83);
+  cursor: default;
+}
 .row {
   align-items: center;
 }

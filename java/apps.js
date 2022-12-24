@@ -1,5 +1,4 @@
-// ⏰Feature #1
-// In your project, display the current date and time using JavaScript: Tuesday 16:00
+// display the current date and time
 function formatDate(date) {
   let days = [
     "Sunday",
@@ -42,45 +41,7 @@ let currentTime = document.querySelector("#current-date");
 let now = new Date();
 currentTime.innerHTML = formatDate(now);
 
-// 🕵️‍♀️Feature #2
-// Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
-// function search(event) {
-//   event.preventDefault();
-//   let searchInput = document.querySelector("#search-input");
-//   let currentLocation = document.querySelector("#current-location");
-//   searchInput = searchInput.value.trim();
-//   searchInput = searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
-//   currentLocation.innerHTML = `${searchInput}`;
-// }
-
-// let form = document.querySelector("#search-form");
-// form.addEventListener("submit", search);
-
-// ---------- start of C to F conversion ----------
-// 🙀Bonus Feature
-// Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
-
-// function celsiusConverter() {
-//   let currentDegrees = document.querySelector("#current-degrees");
-//   currentDegrees.innerHTML = 20;
-// }
-// function fahrenheitConverter() {
-//   let currentDegrees = document.querySelector("#current-degrees");
-//   let temperature = currentDegrees.innerHTML;
-//   currentDegrees.innerHTML = Math.round((temperature * 9) / 5 + 32);
-// }
-// let celsius = document.querySelector("#celsius-link");
-// celsius.addEventListener("click", celsiusConverter);
-// let fahrenheit = document.querySelector("#fahrenheit-link");
-// fahrenheit.addEventListener("click", fahrenheitConverter);
-// ---------- end of C to F conversion ----------
-
-// 👨‍🏫 Your task
-// In your project, when a user searches for a city (example: New York), it should display the name of the city on the result page and the current temperature of the city.
-
-// search is clicked
-// api called when search clicked
-// inner html changed to display search
+// when search is clicked:displays the current temperature of the city.
 let units = "metric";
 let apiKey = "64f17b5a3404993ab8co5054f3c7bt29";
 let apiEndpoint = "https://api.shecodes.io/weather/v1/current?query=";
@@ -99,31 +60,23 @@ function search(event) {
   // );
 }
 
+// select and display temp based on user input
 function displayTemp(response) {
-  // get curr temp
   let temperatureElement = document.querySelector("#current-degrees");
-  // get response and round
   let roundedTemp = Math.round(response.data.temperature.current);
-  // set rounded temp as curr temp
   temperatureElement.innerHTML = `${roundedTemp}`;
-  // get description
   let description = document.querySelector("#weather-description");
-  // set description from response
   let weatherDescription = response.data.condition.description;
-  // update description html
   description.innerHTML = `${weatherDescription}`;
-  // wind data
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  // select humdity
   let humidityElement = document.querySelector("#humidity");
-  // get response
   let roundedHumidity = Math.round(response.data.temperature.humidity);
-  // update description
   humidityElement.innerHTML = `${roundedHumidity}`;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
   iconElement.setAttribute("alt", `${response.data.condition.description}`);
+  celsiusTemp = response.data.temperature.current;
 
   // select rain element
   let rainElement = document.querySelector("#rain");
@@ -142,18 +95,39 @@ function displayTemp(response) {
 
 form.addEventListener("submit", search);
 
-// 🙀 Bonus point:
-// Add a Current Location button. When clicking on it, it uses the Geolocation API to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
-
+// uses coordinates and display location using API.
 function showTemp(position) {
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
   let geoApi = `${apiEndpoint}&lat=${lat}&lon=${lon}&key=${apiKey}&units=${units}`;
-  axios
-    .get(geoApi)
-    .then(displayCurrent)
-    .catch((error) => console.log("error", error));
+  axios.get(geoApi).then(displayCurrent);
+  // .catch((error) => console.log("error", error));
 }
+
+// ---------- start of C to F conversion ----------
+// Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
+function fahrenheitConverter(event) {
+  event.preventDefault();
+  let currentDegrees = document.querySelector("#current-degrees");
+  currentDegrees.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+}
+let celsiusTemp = null;
+
+function celsiusConverter(event) {
+  event.preventDefault();
+  let currentDegrees = document.querySelector("#current-degrees");
+  currentDegrees.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsius = document.querySelector("#celsius-link");
+celsius.addEventListener("click", celsiusConverter);
+
+let fahrenheit = document.querySelector("#fahrenheit-link");
+fahrenheit.addEventListener("click", fahrenheitConverter);
+
+// ---------- end of C to F conversion ----------
+
+// when clicked on current location button
 function displayCurrent(response) {
   let temp = Math.round(response.data.temperature.current);
   let city = response.data.city;
@@ -164,11 +138,15 @@ function displayCurrent(response) {
   let description = document.querySelector("#weather-description");
   let currentDescription = response.data.condition.description;
   description.innerHTML = `${currentDescription}`;
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.wind.speed);
-  let humidityElement = document.querySelector("#humidity");
-  let roundedHumidity = Math.round(response.data.temperature.humidity);
-  humidityElement.innerHTML = `${roundedHumidity}`;
+  //
+  // let windElement = document.querySelector("#wind");
+  // windElement.innerHTML = Math.round(response.wind.speed);
+  // let humidityElement = document.querySelector("#humidity");
+  // let roundedHumidity = Math.round(response.data.temperature.humidity);
+  // humidityElement.innerHTML = `${roundedHumidity}`;
+  // let iconElement = document.querySelector("#icon");
+  // iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
+  // iconElement.setAttribute("alt", `${response.data.condition.description}`);
 }
 function getPosition() {
   navigator.geolocation.getCurrentPosition(showTemp);
