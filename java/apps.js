@@ -141,14 +141,17 @@ function displayCurrent(response) {
   let currentDescription = response.data.condition.description;
   description.innerHTML = `${currentDescription}`;
   //
-  // let windElement = document.querySelector("#wind");
-  // windElement.innerHTML = Math.round(response.wind.speed);
-  // let humidityElement = document.querySelector("#humidity");
+  // let currentWindElement = document.querySelector("#wind");
+  // currentWindElement.innerHTML = Math.round(response.wind.speed);
+  // let currentHumidityElement = document.querySelector("#humidity");
   // let roundedHumidity = Math.round(response.data.temperature.humidity);
-  // humidityElement.innerHTML = `${roundedHumidity}`;
-  // let iconElement = document.querySelector("#icon");
-  // iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
-  // iconElement.setAttribute("alt", `${response.data.condition.description}`);
+  // currentHumidityElement.innerHTML = `${roundedHumidity}`;
+  // let currentIconElement = document.querySelector("#icon");
+  // currentIconElement.setAttribute("src", `${response.data.condition.icon_url}`);
+  // currentIconElement.setAttribute(
+  //   "alt",
+  //   `${response.data.condition.description}`
+  // );
 }
 function getPosition() {
   navigator.geolocation.getCurrentPosition(showTemp);
