@@ -94,10 +94,9 @@ function search(event) {
   cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
   currentLocation.innerHTML = `${cityName}`;
   let apiUrl = `${apiEndpoint}${cityName}&key=${apiKey}&units=${units}`;
-  axios
-    .get(apiUrl)
-    .then(displayTemp)
-    .catch((error) => console.log("error", error));
+  axios.get(apiUrl).then(displayTemp);
+  // .catch((error) => console.log("error", error)
+  // );
 }
 
 function displayTemp(response) {
@@ -115,13 +114,16 @@ function displayTemp(response) {
   description.innerHTML = `${weatherDescription}`;
   // wind data
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.wind.speed);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   // select humdity
   let humidityElement = document.querySelector("#humidity");
   // get response
   let roundedHumidity = Math.round(response.data.temperature.humidity);
   // update description
   humidityElement.innerHTML = `${roundedHumidity}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
+  iconElement.setAttribute("alt", `${response.data.condition.description}`);
 
   // select rain element
   let rainElement = document.querySelector("#rain");
@@ -134,8 +136,8 @@ function displayTemp(response) {
   // if so then update rain ele with value
   // if not show -
   // select date
-  let dateElement = document.querySelector("#current-date");
-  dateElement.innerHTML = formatDate(response.data.time * 1000);
+  // let dateElement = document.querySelector("#current-date");
+  // dateElement.innerHTML = formatDate(response.data.time * 1000);
 }
 
 form.addEventListener("submit", search);
@@ -144,7 +146,6 @@ form.addEventListener("submit", search);
 // Add a Current Location button. When clicking on it, it uses the Geolocation API to get your GPS coordinates and display and the city and current temperature using the OpenWeather API.
 
 function showTemp(position) {
-  console.log(position);
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
   let geoApi = `${apiEndpoint}&lat=${lat}&lon=${lon}&key=${apiKey}&units=${units}`;
