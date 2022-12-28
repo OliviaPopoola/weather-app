@@ -43,7 +43,7 @@ currentTime.innerHTML = formatDate(now);
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thurs", "Fri", "Sat"];
+  let days = ["Thurs", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
   let forecastHTML = `<div class="row gx-5">`;
   days.forEach(function (day) {
     forecastHTML =
@@ -54,12 +54,11 @@ function displayForecast() {
     <div class="forecast-date">${day}</div>
     <br />
     <img
-  src="images/sun-wind.svg"
-  alt="sun-wind"
-  width="150px"
-  /><br />
-    <strong class="forecast-high">18°</strong> /
-    <div class="forecast-low">2°</div>
+      src="images/sun-wind.svg"
+      alt="sun-wind"
+      width="150px"
+      /><br />
+    <strong class="forecast-high">18°</strong> / <span class="forecast-low">2°</span>
     </div>
   
   `;
@@ -83,12 +82,19 @@ function search(event) {
   cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
   currentLocation.innerHTML = `${cityName}`;
   let apiUrl = `${apiEndpoint}${cityName}&key=${apiKey}&units=${units}`;
+
   axios.get(apiUrl).then(displayTemp);
   // .catch((error) => console.log("error", error)
   // );
 }
 
 // select and display temp based on user input
+function getForecast(coordinates) {
+  let apiKey = "64f17b5a3404993ab8co5054f3c7bt29";
+  let apiEndPoint = `https://api.shecodes.io/weather/v1/forecast?`;
+  let apiUrl = `${apiEndPoint}lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 function displayTemp(response) {
   let temperatureElement = document.querySelector("#current-degrees");
   let roundedTemp = Math.round(response.data.temperature.current);
@@ -105,20 +111,7 @@ function displayTemp(response) {
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
   iconElement.setAttribute("alt", `${response.data.condition.description}`);
   celsiusTemp = response.data.temperature.current;
-
-  // select rain element
-  let rainElement = document.querySelector("#rain");
-  // check if exisits
-  if (response.data.rain) {
-    rainElement.innerHTML = `${Math.round(response.data.rain["1h"])}%`;
-  } else {
-    rainElement.innerHTML = "-";
-  }
-  // if so then update rain ele with value
-  // if not show -
-  // select date
-  // let dateElement = document.querySelector("#current-date");
-  // dateElement.innerHTML = formatDate(response.data.time * 1000);
+  getForecast(response.data.coordinates);
 }
 
 form.addEventListener("submit", search);
@@ -181,7 +174,7 @@ function displayCurrent(response) {
   //   `${response.data.condition.description}`
   // );
 }
-displayForecast();
+
 function getPosition() {
   navigator.geolocation.getCurrentPosition(showTemp);
 }
