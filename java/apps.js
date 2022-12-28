@@ -41,31 +41,42 @@ let currentTime = document.querySelector("#current-date");
 let now = new Date();
 currentTime.innerHTML = formatDate(now);
 
-function displayForecast() {
+function forecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDate();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thurs", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
-  let forecastHTML = `<div class="row gx-5">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML += `
   <div class="col day-container">
     <div class="p-3">
-    <div class="forecast-date">${day}</div>
-    <br />
+    <div class="forecast-date">${forecastDate(forecastDay.time)}</div>
+    <br /> 
     <img
-      src="images/sun-wind.svg"
-      alt="sun-wind"
+      src="${forecastDay.condition.icon_url}"
+      alt="${forecastDay.condition.icon}"
       width="150px"
       /><br />
-    <strong class="forecast-high">18°</strong> / <span class="forecast-low">2°</span>
+    <strong class="forecast-high">${Math.round(
+      forecastDay.temperature.maximum
+    )}°</strong> / <span class="forecast-low">${Math.round(
+        forecastDay.temperature.minimum
+      )}°</span>
     </div>
   
   `;
 
-    forecastHTML = forecastHTML + `</div>`;
-    forecastElement.innerHTML = forecastHTML;
-    console.log(forecastHTML);
+      forecastHTML = forecastHTML + `</div>`;
+      forecastElement.innerHTML = forecastHTML;
+    }
   });
 }
 // when search is clicked:displays the current temperature of the city.
