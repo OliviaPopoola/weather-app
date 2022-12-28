@@ -41,6 +41,34 @@ let currentTime = document.querySelector("#current-date");
 let now = new Date();
 currentTime.innerHTML = formatDate(now);
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thurs", "Fri", "Sat"];
+  let forecastHTML = `<div class="row gx-5">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col day-container">
+    <div class="p-3">
+    <div class="forecast-date">${day}</div>
+    <br />
+    <img
+  src="images/sun-wind.svg"
+  alt="sun-wind"
+  width="150px"
+  /><br />
+    <strong class="forecast-high">18°</strong> /
+    <div class="forecast-low">2°</div>
+    </div>
+  
+  `;
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    console.log(forecastHTML);
+  });
+}
 // when search is clicked:displays the current temperature of the city.
 let units = "metric";
 let apiKey = "64f17b5a3404993ab8co5054f3c7bt29";
@@ -153,6 +181,7 @@ function displayCurrent(response) {
   //   `${response.data.condition.description}`
   // );
 }
+displayForecast();
 function getPosition() {
   navigator.geolocation.getCurrentPosition(showTemp);
 }
