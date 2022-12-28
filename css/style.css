@@ -15,9 +15,9 @@ hr {
   font-family: "Poppins", sans-serif;
 }
 .description {
-  margin-top: -22px;
   margin-bottom: 40px;
-  font-size: 20px;
+  font-size: 26px;
+  white-space: nowrap;
 }
 .description:first-letter {
   text-transform: capitalize;
@@ -26,6 +26,7 @@ hr {
   font-size: 80px;
   margin-top: 90px;
   color: rgb(178, 86, 53);
+  white-space: nowrap;
 }
 .date {
   font-size: 20px;
@@ -36,8 +37,8 @@ hr {
   font-size: 28px;
 }
 .more-details {
-  margin-top: 40px;
   font-size: 20px;
+  color: rgba(178, 86, 53, 0.7);
 }
 .current-temperature {
   font-family: "Montserrat", sans-serif;
@@ -78,9 +79,7 @@ hr {
   background-color: rgba(30, 23, 20, 0.3);
   font-size: 26px;
 }
-/* .main-picture {
-  max-width: 40%;
-} */
+
 .degrees {
   font-size: 110px;
 }
