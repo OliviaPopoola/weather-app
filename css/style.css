@@ -51,14 +51,20 @@ hr {
   border-radius: 50px;
   padding: 30px 30px;
 }
-.search-button,
-.current-button {
+.search-button {
   background-color: rgb(190 164 153);
   border: 1px solid black;
 }
-.search-button:hover,
-.current-button:hover {
+.search-button:hover {
   background-color: rgb(208, 182, 171);
+  border: 1px solid black;
+}
+.current-button {
+  background-color: rgba(85, 133, 100, 0.5);
+  border: 1px solid black;
+}
+.current-button:hover {
+  background-color: rgba(85, 133, 100, 0.7);
   border: 1px solid black;
 }
 .day-container {
@@ -79,17 +85,19 @@ hr {
   background-color: rgba(30, 23, 20, 0.3);
   font-size: 26px;
 }
-
 .degrees {
   font-size: 110px;
 }
-.c-symbol.f-symbol {
-  font-size: 10px;
-  font-weight: 100;
+.c-symbol,
+.f-symbol {
+  padding: 10px;
+  border-radius: 30%;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }
 .active {
   color: rgb(94, 83, 83);
-  text-decoration: none;
+  background-color: rgba(233, 218, 203, 0.7);
   cursor: default;
 }
 .active:hover {
